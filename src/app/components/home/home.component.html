@@ -1,1 +1,21 @@
-<p>home works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <ul>
+                <li *ngFor="let film of filme"> {{ film }} </li>
+            </ul>
+        </div>
+
+        <div class="col-6">
+            <input class="form-control" placeholder="Neuen Film erstellen" [(ngModel)]="newDvdTitle">
+
+            <button class="mx-auto d-block mt-2 btn btn-outline-success" [disabled]="newDvdTitle.length >=25"
+                (click)="addNewDvd()">
+                Film hinzufügen
+            </button>
+            <div [class]="'alert alert-' + (newDvdTitle.length <= 25 ? 'primary': 'warning')" *ngIf="newDvdTitle !=''">
+                Wenn sie auf den Button klicken, wird ein neuer Film names {{ newDvdTitle}} erstellt.
+            </div>
+        </div>
+    </div>
+</div>
